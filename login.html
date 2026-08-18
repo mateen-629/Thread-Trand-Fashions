@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Thread &amp; Trend</title>
+<meta name="description" content="Sign in to your Thread & Trend account.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="section-tight">
+    <div class="container">
+      <div class="auth-wrap">
+        <div class="auth-card">
+          <h1>Welcome Back</h1>
+          <p class="sub">Sign in to track orders, manage your wishlist and check out faster.</p>
+
+          <form id="login-form" novalidate>
+            <div class="field" id="l-email">
+              <label>Email Address</label>
+              <input type="email" name="email" required placeholder="jane@email.com">
+              <span class="error-msg">Please enter a valid email.</span>
+            </div>
+            <div class="field" id="l-password">
+              <label>Password</label>
+              <input type="password" name="password" required placeholder="••••••••">
+              <span class="error-msg">Password must be at least 6 characters.</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;">
+              <label class="check-line" style="margin:0;"><input type="checkbox"> Remember me</label>
+              <a href="#" class="link-underline" id="forgot-link" style="font-size:13.5px;color:var(--brass);">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn btn-block">Sign In</button>
+            <div class="form-success" id="login-success">✓ Signed in — redirecting you now.</div>
+          </form>
+
+          <div class="auth-divider">or continue with</div>
+          <div class="social-auth">
+            <button type="button">Google</button>
+            <button type="button">Apple</button>
+          </div>
+
+          <p class="auth-foot">Don't have an account? <a href="signup.html">Create one</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="partials.js"></script>
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('login-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+    const emailWrap = document.getElementById('l-email'), pwWrap = document.getElementById('l-password');
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailWrap.querySelector('input').value);
+    const pwOk = pwWrap.querySelector('input').value.length >= 6;
+    emailWrap.classList.toggle('invalid', !emailOk); if(!emailOk) valid=false;
+    pwWrap.classList.toggle('invalid', !pwOk); if(!pwOk) valid=false;
+    if(valid){
+      document.getElementById('login-success').classList.add('show');
+      setTimeout(()=> window.location.href = 'index.html', 900);
+    }
+  });
+  document.getElementById('forgot-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    TT.showToast('Password reset link sent (demo)');
+  });
+});
+</script>
+</body>
+</html>

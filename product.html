@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Product — Thread &amp; Trend</title>
+<meta name="description" content="Shop considered clothing at Thread & Trend.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <a href="shop.html">Shop</a> <span>/</span> <span id="crumb-name">Product</span></div>
+    </div>
+  </div>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="pd-layout" id="pd-layout"></div>
+
+      <div class="pd-tabs">
+        <button class="pd-tab active" data-tab="desc">Description</button>
+        <button class="pd-tab" data-tab="size">Size Guide</button>
+        <button class="pd-tab" data-tab="ship">Shipping &amp; Returns</button>
+        <button class="pd-tab" data-tab="reviews">Reviews</button>
+      </div>
+      <div class="pd-tab-panel active" id="tab-desc"></div>
+      <div class="pd-tab-panel" id="tab-size">
+        <table style="width:100%;border-collapse:collapse;max-width:520px;">
+          <tr style="border-bottom:1px solid var(--beige-line);"><td style="padding:10px 0;">Size</td><td>Chest (in)</td><td>Waist (in)</td><td>Length (in)</td></tr>
+          <tr style="border-bottom:1px solid var(--beige-line);"><td style="padding:10px 0;">S</td><td>36–38</td><td>29–31</td><td>27</td></tr>
+          <tr style="border-bottom:1px solid var(--beige-line);"><td style="padding:10px 0;">M</td><td>39–41</td><td>32–34</td><td>28</td></tr>
+          <tr style="border-bottom:1px solid var(--beige-line);"><td style="padding:10px 0;">L</td><td>42–44</td><td>35–37</td><td>29</td></tr>
+          <tr><td style="padding:10px 0;">XL</td><td>45–47</td><td>38–40</td><td>30</td></tr>
+        </table>
+      </div>
+      <div class="pd-tab-panel" id="tab-ship">
+        <p>Orders ship within 1–2 business days. Standard delivery takes 3–5 business days; express delivery (1–2 days) is available at checkout. Returns are accepted within 30 days of delivery, provided items are unworn and tagged. Refunds are issued to the original payment method within 5 business days of receipt.</p>
+      </div>
+      <div class="pd-tab-panel" id="tab-reviews"></div>
+
+      <h2 class="related-title">You may also like</h2>
+      <div class="product-grid" id="related-grid"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="partials.js"></script>
+<script src="app.js"></script>
+<script src="product.js"></script>
+</body>
+</html>

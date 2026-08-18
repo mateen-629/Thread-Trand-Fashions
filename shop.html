@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All — Thread &amp; Trend</title>
+<meta name="description" content="Browse the full Thread & Trend collection — filter by category, size, colour and price.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Shop</span></div>
+      <h1>Shop All</h1>
+    </div>
+  </div>
+
+  <section class="section-tight">
+    <div class="container">
+
+      <div class="mobile-filter-btn" style="margin-bottom:20px;">
+        <button class="btn btn-outline btn-sm" id="open-filters">Filter &amp; Sort</button>
+      </div>
+
+      <div class="shop-layout">
+
+        <aside class="filter-panel" id="filter-panel">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <strong style="font-family:var(--font-nav);font-size:13px;letter-spacing:.08em;text-transform:uppercase;">Filters</strong>
+            <button class="drawer-close" id="close-filters" style="display:none;">✕</button>
+          </div>
+
+          <div class="filter-block">
+            <div class="filter-title">Category <button class="clear-btn" data-clear="category">Clear</button></div>
+            <div id="filter-category"></div>
+          </div>
+
+          <div class="filter-block">
+            <div class="filter-title">Size <button class="clear-btn" data-clear="size">Clear</button></div>
+            <div class="size-grid" id="filter-size"></div>
+          </div>
+
+          <div class="filter-block">
+            <div class="filter-title">Colour <button class="clear-btn" data-clear="color">Clear</button></div>
+            <div class="color-grid" id="filter-color"></div>
+          </div>
+
+          <div class="filter-block">
+            <div class="filter-title">Price</div>
+            <input type="range" id="price-range" min="0" max="90000" step="1000" value="90000">
+            <div class="range-row"><span>Rs 0</span><span id="price-value">Up to Rs 90,000</span></div>
+          </div>
+
+          <button class="btn btn-outline btn-block" id="apply-filters-mobile" style="margin-top:22px;display:none;">Show Results</button>
+        </aside>
+
+        <div>
+          <div class="shop-toolbar">
+            <span class="result-count" id="result-count">Showing all products</span>
+            <select class="sort-select" id="sort-select">
+              <option value="featured">Sort: Featured</option>
+              <option value="new">Newest</option>
+              <option value="popular">Most Popular</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="sale">On Sale</option>
+            </select>
+          </div>
+
+          <div class="product-grid" id="shop-grid"></div>
+          <div class="no-results" id="no-results" style="display:none;">
+            <h3>No products match your filters</h3>
+            <p>Try widening your search or clearing a filter.</p>
+            <button class="btn" id="reset-all">Clear All Filters</button>
+          </div>
+          <div class="pagination" id="pagination"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="drawer-scrim" id="filter-scrim"></div>
+
+<div id="site-footer"></div>
+
+<script src="partials.js"></script>
+<script src="app.js"></script>
+<script src="shop.js"></script>
+</body>
+</html>

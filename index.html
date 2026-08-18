@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thread &amp; Trend — Considered Clothing, Made to Last</title>
+<meta name="description" content="Thread & Trend is a modern fashion house for men, women and kids — natural fibres, tailored cuts, and considered basics designed to outlast a season.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1800&auto=format&fit=crop" alt="Model wearing a Thread & Trend tailored wool coat">
+    </div>
+    <div class="hero-content">
+      <span class="eyebrow">Autumn / Winter Edit</span>
+      <h1>Clothes built to <em>outlast</em> the season.</h1>
+      <p>Natural fibres, considered tailoring, and a palette that never goes out of style. Discover the pieces we make once and wear for years.</p>
+      <div class="hero-cta">
+        <a href="shop.html" class="btn">Shop Now</a>
+        <a href="categories.html" class="btn btn-outline" style="border-color:rgba(251,249,245,.5); color:#FBF9F5;">Explore Categories</a>
+      </div>
+    </div>
+    <div class="hero-pin" style="top:22%; left:56%; animation-delay:.6s;"><span class="num">01</span> Wool Overcoat — Rs 69,400</div>
+    <div class="hero-pin" style="top:58%; left:68%; animation-delay:1s;"><span class="num">02</span> Silk Wrap Dress — Rs 52,100</div>
+    <div class="hero-vertical">Est. 2019 — New York</div>
+    <div class="scroll-cue"><span class="line"></span> Scroll</div>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span><span>New Season Arrivals</span><span>Free Shipping Over Rs 42,000</span><span>30-Day Easy Returns</span><span>Ethically Sourced Fabrics</span><span>New Season Arrivals</span><span>Free Shipping Over Rs 42,000</span><span>30-Day Easy Returns</span><span>Ethically Sourced Fabrics</span></span>
+    </div>
+  </div>
+
+  <!-- FEATURED CATEGORIES -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Shop by category</span>
+          <h2>Find your fit</h2>
+        </div>
+        <p class="lead">Four wardrobes, one point of view — considered pieces for every member of the house.</p>
+      </div>
+      <div class="cat-grid">
+        <a href="shop.html?cat=Men" class="cat-card big">
+          <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=1200&auto=format&fit=crop" alt="Men's collection">
+          <div class="cat-card-info"><div><span>24 Styles</span><h3>Men</h3></div><div class="cat-arrow">↗</div></div>
+        </a>
+        <a href="shop.html?cat=Kids" class="cat-card">
+          <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?q=80&w=900&auto=format&fit=crop" alt="Kids' collection">
+          <div class="cat-card-info"><div><span>15 Styles</span><h3>Kids</h3></div><div class="cat-arrow">↗</div></div>
+        </a>
+        <a href="shop.html?cat=Women" class="cat-card">
+          <img src="https://images.unsplash.com/photo-1630312837195-f9cfd7cc3d59?q=80&w=900&auto=format&fit=crop" alt="Women's collection">
+          <div class="cat-card-info"><div><span>32 Styles</span><h3>Women</h3></div><div class="cat-arrow">↗</div></div>
+        </a>
+        <a href="shop.html?cat=Accessories" class="cat-card">
+          <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=900&auto=format&fit=crop" alt="Accessories collection">
+          <div class="cat-card-info"><div><span>18 Styles</span><h3>Accessories</h3></div><div class="cat-arrow">↗</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW ARRIVALS -->
+  <section class="bg-beige">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Just landed</span><h2>New Arrivals</h2></div>
+        <a href="shop.html?sort=new" class="btn btn-outline">View All</a>
+      </div>
+      <div class="product-grid" id="new-arrivals-grid"></div>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Customer favourites</span><h2>Best Sellers</h2></div>
+        <a href="shop.html?sort=popular" class="btn btn-outline">View All</a>
+      </div>
+      <div class="product-grid" id="best-sellers-grid"></div>
+    </div>
+  </section>
+
+  <!-- DISCOUNT BANNER -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="discount-banner">
+        <div>
+          <span class="eyebrow" style="color:#E4DAC7">Limited time</span>
+          <h3>End of Season Sale — up to <span style="color:#A3854E">40% off</span></h3>
+          <p>Selected outerwear, knitwear and accessories. While stocks last, ends midnight Sunday.</p>
+          <div class="countdown" id="countdown">
+            <div><span id="cd-h">00</span><small>Hours</small></div>
+            <div><span id="cd-m">00</span><small>Mins</small></div>
+            <div><span id="cd-s">00</span><small>Secs</small></div>
+          </div>
+          <a href="shop.html?sort=sale" class="btn btn-ivory">Shop the Sale</a>
+        </div>
+        <div class="db-num">40%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="bg-beige">
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;">
+        <span class="eyebrow">Why Thread &amp; Trend</span>
+        <h2>Made with intent</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7l-9 9-5-5"/></svg></div>
+          <h4>Considered Materials</h4>
+          <p>Natural wool, cotton, linen and cashmere sourced from long-standing mills.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l6 6L21 6"/></svg></div>
+          <h4>Free Returns, 30 Days</h4>
+          <p>Try it at home. If it's not right, send it back at no cost to you.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 018 0v2"/></svg></div>
+          <h4>Secure Checkout</h4>
+          <p>Encrypted payments through every major card and digital wallet.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></div>
+          <h4>Small-Batch Production</h4>
+          <p>We produce in limited runs to reduce waste and protect quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section>
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;">
+        <span class="eyebrow">Testimonials</span>
+        <h2>What customers are saying</h2>
+      </div>
+      <div class="review-track" id="reviews-track"></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="newsletter">
+        <span class="eyebrow" style="justify-content:center">Stay in the loop</span>
+        <h2>Join the Thread &amp; Trend list</h2>
+        <p>New arrivals, early sale access and the occasional styling note — no spam, unsubscribe any time.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" required placeholder="Enter your email address">
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+        <div class="form-success" id="newsletter-success">✓ You're on the list — welcome to Thread &amp; Trend.</div>
+        <p class="newsletter-note">By subscribing you agree to our Privacy Policy.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="partials.js"></script>
+<script src="app.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

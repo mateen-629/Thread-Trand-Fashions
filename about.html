@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Thread &amp; Trend</title>
+<meta name="description" content="Thread & Trend is a New York fashion house building considered clothing from natural fibres since 2019.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>About Us</span></div>
+      <h1>Our Story</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="about-hero">
+        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1000&auto=format&fit=crop" alt="Thread & Trend design studio">
+        <div>
+          <span class="eyebrow">Since 2019</span>
+          <h2 style="font-size:clamp(28px,4vw,44px);margin:16px 0 20px;">Clothing built to be worn, not just bought.</h2>
+          <p style="color:var(--ink-soft);font-size:15.5px;line-height:1.85;margin-bottom:18px;">Thread &amp; Trend began in a single rented room above a fabric wholesaler in New York's Garment District, with one idea: make fewer, better pieces from materials that actually hold up. No seasonal gimmicks — just wool, cotton, linen and leather, cut well and finished properly.</p>
+          <p style="color:var(--ink-soft);font-size:15.5px;line-height:1.85;">Seven years on, we still work with many of the same small mills and family-run workshops we started with. Every piece is produced in limited runs, which means less waste, tighter quality control, and a collection that doesn't try to be everything to everyone.</p>
+         <!-- AB -->
+<div class="stat-row">
+  <div class="stat-item"><div class="num" data-count="7" data-suffix="+">0</div><span>Years Running</span></div>
+  <div class="stat-item"><div class="num" data-count="40" data-suffix="k">0</div><span>Happy Customers</span></div>
+  <div class="stat-item"><div class="num" data-count="12" data-suffix="">0</div><span>Partner Mills</span></div>
+  <div class="stat-item"><div class="num" data-count="4.8" data-suffix="" data-decimal="1">0</div><span>Average Rating</span></div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-beige">
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;">
+        <span class="eyebrow">Our journey</span>
+        <h2>Milestones</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-year">2019</div><div><h4>A single rack, one collection</h4><p>Thread &amp; Trend launches with an 18-piece outerwear and knitwear capsule, sold directly to 30 customers in New York.</p></div></div>
+        <div class="tl-item"><div class="tl-year">2021</div><div><h4>Kids &amp; Accessories added</h4><p>We expand beyond ready-to-wear into considered basics for children and a small leather goods line.</p></div></div>
+        <div class="tl-item"><div class="tl-year">2023</div><div><h4>Carbon-neutral shipping</h4><p>Every order begins shipping carbon-neutral as standard, at no extra cost to the customer.</p></div></div>
+        <div class="tl-item"><div class="tl-year">2026</div><div><h4>40,000 customers, one philosophy</h4><p>Still small-batch, still made from natural fibres, still designed to be worn for years — not one season.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;">
+        <span class="eyebrow">The people behind it</span>
+        <h2>Meet the Team</h2>
+      </div>
+      <div class="team-grid">
+        <!-- AB -->
+<div class="team-card"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=500&auto=format&fit=crop" alt="Ayesha Siddiqui"><h4>Ayesha Siddiqui</h4><span>Founder &amp; Creative Director</span></div>
+<div class="team-card"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=500&auto=format&fit=crop" alt="Hamza Sheikh"><h4>Hamza Sheikh</h4><span>Head of Product</span></div>
+<div class="team-card"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=500&auto=format&fit=crop" alt="Mahnoor Ahmed"><h4>Mahnoor Ahmed</h4><span>Lead Pattern Cutter</span></div>
+<div class="team-card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop" alt="Zeeshan Iqbal"><h4>Zeeshan Iqbal</h4><span>Sourcing &amp; Sustainability</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="newsletter">
+        <span class="eyebrow" style="justify-content:center">Come work with us</span>
+        <h2>We're always looking for good people</h2>
+        <p>If you care about craft, natural fibres and doing fewer things well, we'd like to hear from you.</p>
+        <a href="contact.html" class="btn">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="partials.js"></script>
+<!-- AB -->
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const nums = document.querySelectorAll('.stat-item .num');
+  if(!nums.length) return;
+
+  function animateCount(el){
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const decimals = el.dataset.decimal ? parseInt(el.dataset.decimal) : 0;
+    const duration = 1400;
+    const start = performance.now();
+
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      el.textContent = current.toFixed(decimals) + suffix;
+      if(progress < 1){
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = target.toFixed(decimals) + suffix;
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        animateCount(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  nums.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Thread &amp; Trend</title>
+<meta name="description" content="Answers to common questions about orders, shipping, returns and sizing at Thread & Trend.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>FAQ</span></div>
+      <h1>Frequently Asked Questions</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="faq-tabs" id="faq-tabs" style="justify-content:center;">
+        <button class="faq-tab active" data-cat="all">All</button>
+        <button class="faq-tab" data-cat="orders">Orders &amp; Shipping</button>
+        <button class="faq-tab" data-cat="returns">Returns &amp; Exchanges</button>
+        <button class="faq-tab" data-cat="sizing">Sizing &amp; Fit</button>
+        <button class="faq-tab" data-cat="account">Account &amp; Payment</button>
+      </div>
+
+      <div class="faq-list" id="faq-list"></div>
+    </div>
+  </section>
+
+  <section class="bg-beige section-tight">
+    <div class="container center">
+      <span class="eyebrow" style="justify-content:center;">Still have questions?</span>
+      <h2 style="margin:14px 0 22px;">Our team is happy to help</h2>
+      <a href="contact.html" class="btn">Contact Support</a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="partials.js"></script>
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const FAQS = [
+    { cat:'orders', q:'How long does delivery take?', a:'Standard delivery takes 3–5 business days within the continental US. Express delivery (1–2 business days) is available at checkout for an additional fee. International orders typically take 7–14 business days.' },
+    { cat:'orders', q:'Can I track my order?', a:"Yes — once your order ships you'll receive a tracking link by email. You can also view order status from your account dashboard after logging in." },
+    { cat:'orders', q:'Do you ship internationally?', a:'We currently ship to over 30 countries. Duties and import taxes, where applicable, are calculated at checkout so there are no surprise charges on delivery.' },
+    { cat:'returns', q:'What is your return policy?', a:'We accept returns within 30 days of delivery on unworn items with tags attached. Refunds are issued to your original payment method within 5 business days of us receiving the return.' },
+    { cat:'returns', q:'How do I start a return or exchange?', a:'Log into your account, select the order, and choose "Start a Return." You can select a refund or an exchange for a different size or colour, subject to availability.' },
+    { cat:'returns', q:'Who pays for return shipping?', a:'Returns within the US are free using our prepaid label. International return shipping costs are the responsibility of the customer unless the item arrived damaged or incorrect.' },
+    { cat:'sizing', q:'How do I find my size?', a:'Every product page includes a size guide tab with measurements in inches. If you\'re between sizes, we generally recommend sizing up for outerwear and knitwear, and true-to-size for shirting.' },
+    { cat:'sizing', q:'Do your sizes run large or small?', a:'Our fit is designed true-to-size against standard US sizing. Customer reviews on each product page often note fit specifics, which can help if you\'re deciding between two sizes.' },
+    { cat:'account', q:'What payment methods do you accept?', a:'We accept all major credit and debit cards (Visa, Mastercard, Amex), PayPal, Apple Pay and Google Pay. All payments are processed over an encrypted, secure connection.' },
+    { cat:'account', q:'Is it necessary to create an account to order?', a:'No — guest checkout is available. Creating an account simply lets you track orders, save addresses, and build a wishlist for next time.' },
+    { cat:'account', q:'How do I reset my password?', a:'On the login page, select "Forgot password" and enter your email address. You\'ll receive a link to set a new password within a few minutes.' },
+    { cat:'orders', q:'Can I change or cancel my order after placing it?', a:'We begin processing orders quickly, but if you contact us within 2 hours of placing your order we can usually amend or cancel it before it ships.' },
+  ];
+
+  const list = document.getElementById('faq-list');
+  const tabs = document.getElementById('faq-tabs');
+
+  function render(cat){
+    const items = cat === 'all' ? FAQS : FAQS.filter(f => f.cat === cat);
+    list.innerHTML = items.map((f,i) => `
+      <div class="faq-item">
+        <button class="faq-q" data-idx="${i}">
+          <span>${f.q}</span><span class="plus"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-in">${f.a}</div></div>
+      </div>`).join('');
+
+    list.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-a');
+        const isOpen = item.classList.contains('open');
+        list.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+        if(!isOpen){
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
+  tabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.faq-tab');
+    if(!btn) return;
+    tabs.querySelectorAll('.faq-tab').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    render(btn.dataset.cat);
+  });
+
+  render('all');
+});
+</script>
+</body>
+</html>

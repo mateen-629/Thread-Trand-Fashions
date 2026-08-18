@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account — Thread &amp; Trend</title>
+<meta name="description" content="Create a Thread & Trend account for faster checkout, order tracking and wishlists.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="section-tight">
+    <div class="container">
+      <div class="auth-wrap">
+        <div class="auth-card">
+          <h1>Create Your Account</h1>
+          <p class="sub">Join Thread &amp; Trend for early sale access and a saved wishlist.</p>
+
+          <form id="signup-form" novalidate>
+            <div class="form-grid">
+              <div class="field" id="su-first"><label>First Name</label><input name="first" required><span class="error-msg">Required</span></div>
+              <div class="field" id="su-last"><label>Last Name</label><input name="last" required><span class="error-msg">Required</span></div>
+            </div>
+            <div class="field" id="su-email">
+              <label>Email Address</label>
+              <input type="email" name="email" required placeholder="jane@email.com">
+              <span class="error-msg">Please enter a valid email.</span>
+            </div>
+            <div class="field" id="su-password">
+              <label>Password</label>
+              <input type="password" name="password" required placeholder="Minimum 6 characters">
+              <div class="pw-strength"><span id="pw-strength-bar"></span></div>
+              <span class="error-msg">Password must be at least 6 characters.</span>
+            </div>
+            <div class="field" id="su-confirm">
+              <label>Confirm Password</label>
+              <input type="password" name="confirm" required>
+              <span class="error-msg">Passwords do not match.</span>
+            </div>
+            <label class="check-line"><input type="checkbox" id="su-terms"> I agree to the <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy-policy.html">Privacy Policy</a></label>
+            <button type="submit" class="btn btn-block">Create Account</button>
+            <div class="form-success" id="signup-success">✓ Account created — welcome to Thread &amp; Trend.</div>
+          </form>
+
+          <div class="auth-divider">or continue with</div>
+          <div class="social-auth">
+            <button type="button">Google</button>
+            <button type="button">Apple</button>
+          </div>
+
+          <p class="auth-foot">Already have an account? <a href="login.html">Sign in</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="partials.js"></script>
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const pwInput = document.querySelector('#su-password input');
+  const bar = document.getElementById('pw-strength-bar');
+  pwInput.addEventListener('input', () => {
+    const v = pwInput.value;
+    let score = 0;
+    if(v.length >= 6) score += 1;
+    if(v.length >= 10) score += 1;
+    if(/[A-Z]/.test(v) && /[0-9]/.test(v)) score += 1;
+    if(/[^A-Za-z0-9]/.test(v)) score += 1;
+    const pct = [0,25,55,80,100][score];
+    const colors = ['#DCD0BA','#A8503E','#C99A4A','#8CA07E','#5C7A5A'];
+    bar.style.width = pct + '%';
+    bar.style.background = colors[score];
+  });
+
+  const form = document.getElementById('signup-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+    const checks = [
+      ['su-first', v=>v.trim().length>0],
+      ['su-last', v=>v.trim().length>0],
+      ['su-email', v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
+      ['su-password', v=>v.length>=6],
+    ];
+    checks.forEach(([id,test]) => {
+      const wrap = document.getElementById(id);
+      const ok = test(wrap.querySelector('input').value);
+      wrap.classList.toggle('invalid', !ok);
+      if(!ok) valid = false;
+    });
+    const confirmWrap = document.getElementById('su-confirm');
+    const confirmOk = confirmWrap.querySelector('input').value === pwInput.value && pwInput.value.length>0;
+    confirmWrap.classList.toggle('invalid', !confirmOk);
+    if(!confirmOk) valid = false;
+
+    if(!document.getElementById('su-terms').checked){
+      TT.showToast('Please accept the Terms & Conditions');
+      valid = false;
+    }
+
+    if(valid){
+      document.getElementById('signup-success').classList.add('show');
+      setTimeout(()=> window.location.href = 'index.html', 900);
+    }
+  });
+});
+</script>
+</body>
+</html>

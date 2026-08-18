@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categories — Thread &amp; Trend</title>
+<meta name="description" content="Explore Thread & Trend by category — Men, Women, Kids and Accessories.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Categories</span></div>
+      <h1>Shop by Category</h1>
+    </div>
+  </div>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="category-hero-grid">
+        <a href="shop.html?cat=Men" class="cat-card" style="min-height:420px;">
+          <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=900&auto=format&fit=crop" alt="Men">
+          <div class="cat-card-info"><div><span>24 Styles</span><h3>Men</h3></div><div class="cat-arrow">↗</div></div>
+        </a>
+        <a href="shop.html?cat=Kids" class="cat-card" style="min-height:420px;">
+          <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?q=80&w=900&auto=format&fit=crop" alt="Kids">
+          <div class="cat-card-info"><div><span>15 Styles</span><h3>Kids</h3></div><div class="cat-arrow">↗</div></div>
+        </a>
+        <a href="shop.html?cat=Women" class="cat-card" style="min-height:420px;">
+          <img src="https://images.unsplash.com/photo-1630312837195-f9cfd7cc3d59?q=80&w=900&auto=format&fit=crop" alt="Women">
+          <div class="cat-card-info"><div><span>32 Styles</span><h3>Women</h3></div><div class="cat-arrow">↗</div></div>
+        </a>
+        <a href="shop.html?cat=Accessories" class="cat-card" style="min-height:420px;">
+          <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=900&auto=format&fit=crop" alt="Accessories">
+          <div class="cat-card-info"><div><span>18 Styles</span><h3>Accessories</h3></div><div class="cat-arrow">↗</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-beige">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Trending now</span><h2>Popular in Women</h2></div>
+        <a href="shop.html?cat=Women" class="btn btn-outline">Shop Women</a>
+      </div>
+      <div class="product-grid" id="cat-women-grid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Trending now</span><h2>Popular in Men</h2></div>
+        <a href="shop.html?cat=Men" class="btn btn-outline">Shop Men</a>
+      </div>
+      <div class="product-grid" id="cat-men-grid"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="partials.js"></script>
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  function card(p){
+    const wished = TT.getWishlist().includes(p.id);
+    return `<div class="product-card">
+      <a href="product.html?id=${p.id}" class="pc-media">
+        ${p.badge ? `<div class="pc-tags"><span class="pc-tag ${p.badge==='Sale'?'sale':p.badge==='New'?'new':''}">${p.badge}</span></div>` : ''}
+        <button class="pc-wish ${wished?'active':''}" data-wish="${p.id}">${window.TT_ICONS.heart}</button>
+        <img class="img-a" src="${p.img1}" alt="${p.name}"><img class="img-b" src="${p.img2}" alt="">
+        <div class="pc-quickadd"><button data-quickadd="${p.id}">Quick Add</button></div>
+      </a>
+      <div class="pc-body">
+        <span class="pc-cat">${p.category}</span>
+        <a href="product.html?id=${p.id}"><h3 class="pc-name">${p.name}</h3></a>
+        <div class="pc-rating"><span class="stars">${TT.starString(p.rating)}</span> ${p.rating} (${p.reviews})</div>
+        <div class="pc-price-row"><span class="pc-price">Rs ${TT.formatPrice(p.price)}</span>${p.oldPrice?`<span class="pc-price-old">Rs ${TT.formatPrice(p.oldPrice)}</span>`:''}</div>
+      </div></div>`;
+  }
+  document.getElementById('cat-women-grid').innerHTML = TT.PRODUCTS.filter(p=>p.category==='Women').slice(0,4).map(card).join('');
+  document.getElementById('cat-men-grid').innerHTML = TT.PRODUCTS.filter(p=>p.category==='Men').slice(0,4).map(card).join('');
+
+  document.body.addEventListener('click', (e) => {
+    const wishBtn = e.target.closest('[data-wish]');
+    if(wishBtn){ e.preventDefault(); const active = TT.toggleWishlist(wishBtn.dataset.wish); wishBtn.classList.toggle('active', active); }
+    const quickBtn = e.target.closest('[data-quickadd]');
+    if(quickBtn){ e.preventDefault(); const p = TT.findProduct(quickBtn.dataset.quickadd); TT.addToCart(p.id, p.sizes[0]||'One Size', p.colors[0]?p.colors[0].n:'Default', 1); }
+  });
+});
+</script>
+</body>
+</html>
